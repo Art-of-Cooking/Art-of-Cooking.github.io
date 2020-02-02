@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple animation</title>
+  </head>
+  <body>
+    <img 
+    id="tom"
+    src="figs/walk1.png" 
+    alt="Walk_1"
+    style="position: absolute;
+           left: 0px;
+           top: 20px;
+           width: 200px;
+           height: 200px;"
+    />
+    <script>
+      var x = 0;
+      var y = 20;
+      function move() {
+        x += 1;
+        if (x % 2 == 0) {
+          document.getElementById('tom').src='figs/walk1.png';
+        }
+        else {
+          document.getElementById('tom').src='figs/walk2.png';
+        }
+        document.getElementById('tom').style.left=`${x*20}px`;
+        document.getElementById('tom').style.top=`${y}px`;
+        if (x * 20 >= window.innerWidth) {
+          x = 0;
+          y += 20
+        }
+      }
+    </script>
+    <button onClick="move()">
+      Move!
+    </button>
+  </body>
+</html> 
+
